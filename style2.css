@@ -1,0 +1,24 @@
+/**mail.html e geçerken gözüken css***/
+.mail-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    
+}
+
+.mail-box h3{
+    color: var(--text-color);
+    font-size: 50px;
+
+}
+
+.mail-box p{
+    font-size: 30px;
+}
+
+.mail-box i{
+    color: forestgreen;
+    
+}

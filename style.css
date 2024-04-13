@@ -1,0 +1,460 @@
+/**GOOGLE FONTS**/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+/**Değişkenler**/
+/**sözde sınıf kullanımlarında :root olarak kullanıyoruz***/
+:root{
+    --main-color:orangered;
+    --secondary-color:orange;
+    --text-color: #444;
+    --bg-color: #eeeff2;
+    --white : #fff;
+    --bg-secondary: purple;
+}
+
+
+
+
+header{
+    display: flex; /**yanyana alıyoruz**/
+    justify-content: space-evenly; /**elemanların arasında eşit boşluk olacak**/
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 10px;
+    /*!position-fixed ile header sabitlicez ekran aşağı kayaerken biz takip edicek*/
+    position: fixed;
+     /***top vericez yukarı tam otursun fakat kaybolucak bu esnada çünkü z-index vermemiz gerek**/
+    top: 0;
+    /***z-index ile kaybolan header ı geri getiriyoruz**/
+    z-index: 999;
+     /**fakat header sola kaymıl olduğu için widht 100% ile tam ortalıyoruz***/
+    width: 100%;
+}
+
+header img{
+    width: 40px;
+}
+
+.navbar{
+    display: flex;
+}
+.navbar li{
+    list-style-type: none; /**li'lerdeki noktaları sileriz**/
+}
+
+.navbar a{
+    text-decoration: none; /**navbardaki yazıların alt çizgisini yok ediyoruz**/
+    color: var(--text-color);
+    padding: 10px; /**padding ile home about navbarların arasını açıyoruz***/
+}
+.navbar a:hover{
+    color: var(--main-color);
+    transition: .5s;
+}
+
+.header-btn button{
+    background-color: var(--main-color);
+    color: var(--white);
+    border: none;
+    padding: 5px; /***içten padding ile biraz büyütmüş oluyoruz buttonu****/
+    border-radius: 10px;
+    cursor: pointer;
+}
+.header-btn button:hover{
+    background-color: var(--bg-secondary);
+    transition: .5s;
+}
+
+
+/**HOME***/
+.home{
+    background: url(Images/Car\ Website\ –\ 1@2x.png);
+    /**tarayıcının tüm ekran alanını kullan demek***/
+    height: 100vh;
+    background-position: 50%;
+    /***hizalamak için display grid yapıyoruz***/
+    display: grid;
+    /**kaç sütun olacağını ve genişliğinin ne derecede olacağını ayarlıyoruz***/
+    grid-template-columns: repeat(2, 1fr); /**2 sütunda yap bir defa genişliği olsun***/
+    align-items: center; /***yanyana alıyoruz***/
+
+
+    /*!position relative veriyoruz aşağıda ki form-container form classında işlem yapabilmek için*/
+    position: relative;
+}
+
+.text{
+    padding: 20px;
+}
+
+.text h1{
+    font-size: 50px;
+}
+
+.text span{
+    color: var(--main-color);
+}
+
+.text p{
+    margin: 15px; /**paragraf yazımız ile mobile resimlerin arasında yukarıdan boşluk bıraktık***/
+}
+
+.app-stores{
+    display: flex;
+    gap: 10px; /**app resimlerimiz arasında 10px boşluk bıraktık gap ile***/
+
+}
+
+.app-stores img{
+    width: 100px;
+    cursor: pointer;
+}
+
+.form-container form{
+    display: flex;
+    align-items: center;
+    background-color: #ffffffd7;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+
+    /*!position absolute veriyoruz formu yerinden oynatmak için sayfada istediğimizigibi*/
+    /*!Ve önce home alanına position relative vereceğiz ki buradan işlem yapabilelim*/
+    position: absolute;
+    bottom: 4rem;
+    left: 100px;
+    
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column; /**alt alta alabilmek için inputu kullanıyoruz **/
+    align-items: center; /**birbirine hizala**/
+}
+
+.input-box span{
+    color: var(--main-color);
+}
+.input-box input{
+    outline: none; /**inputa tıklayınca kenarında oluşan mavi çizgileri yok eder***/
+    border: none;
+    background-color: rgba(128, 128, 128, 0.208);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.input-box button{
+    background-color: var(--main-color);
+    color: var(--white);
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.input-box button:hover{
+    background-color: var(--bg-secondary);
+    cursor: pointer;
+    transition: .5s;
+    scale: 0.95; /**mouse üzerine gelince küçülme yapar simgeyi hafifçe**/
+}
+
+
+/**RİDE ALANI yani box alanları ve kiralama alanı**/
+.heading{
+    text-align: center; /**yazıları ortalıyoruz unutmadan***/
+    background-color: var(--bg-color);
+    margin-top: 30px;
+}
+.heading h1{
+    font-size: 30px;
+}
+.heading span{
+    color: var(--main-color);
+}
+
+.ride-container{
+    display: grid; /**grid yapısı için gridi kesin çağırıyoruz***/
+    /**1fr, 1fr, 1fr da diyebiliriz 3 sütun yapıyor yanyana***/
+    grid-template-columns: repeat(3, auto);  /**3 sütunlu olduğu için***/ /**ve bize üç sutun var 3, ve bunları kendiliğinden sayfanın büyüklüğüne göre ayarla diyoruz auto ile**/
+    gap: 20px; /**gap ile yanyana olarak aralarında ki mesafeyi açıyoruz**/
+    margin-top: 30px; /**diyip dışarıdan yani yukarıdan başlıktan uzaklaştırıyoruz aşağıya doğru***/
+}
+.ride-container .box{
+    text-align: center; /***icon ve metinleri ortalamış olacak**/
+    padding: 20px;
+}
+.ride-container .box i{
+    font-size: 25px;
+    color: var(--main-color);
+    background-color: var(--bg-color); /**iconların arkasına renk verdik fakat görünmüyor görünmesi için padding vereceğiz***/
+    padding: 10px;
+    border-radius: 50%;
+}
+.ride-container .box i:hover{
+    background-color: var(--main-color);
+    color: var(--white);
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+/***ARABA FOTO BÖLÜMÜ SERVİCES ALANI****/
+.services-container{
+    display: grid;
+    /**grid sütun özelliklerini kullan***/
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+}
+.services-container .box{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+    margin-top: 30px;
+}
+.services-container .box:hover{
+    scale: 1.04; /**scale resme mouse gelince resim büyüyor***/
+    transition: .5s;
+    cursor: pointer;
+}
+
+.services-container .box .box-img{
+    width: 100%; /**kutunun yüze yüzünü kullanacağız**/
+    height: 300px;
+}
+
+/**services.container içinde ki box ve box içinde ki box-img ve box-img içinde img**/
+.services-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /***fotoğraftaki bozuklukları düzeltir ve box içine tam sığdırır**/
+    border-radius: 10px;
+}
+
+.services-container .box p{
+    font-weight: bold;
+    border: 1px solid black;
+    width: 60px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px; /**dışarıdan etrafından biraz boşluk bırakıyoruz resimden ve altında ki yazılardan arınsın diye biraz***/
+}
+
+.services-container .box h2{
+    color: var(--main-color);
+
+}
+
+.services-container .box span{
+    color: var(--text-color);
+}
+
+.services-container .box button{
+    background-color: var(--bg-secondary);
+    color: white;
+    border:none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    
+}
+
+.services-container .box button:hover{
+    background-color:  var(--main-color);
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+
+/***ABOUT***/
+
+.about-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /**2 sütun genişlik ikisinede 1fr yani birbirine eşit  block**/
+    align-items: center;
+}
+/**about-img içinde ki img a git**/
+.about-img img{
+    width: 100%;
+}
+
+.about-text span{
+    color: var(--main-color);
+    
+}
+.about-text p{
+    margin: 20px; /**margin ile iki paragraf arasını açıyoruz***/
+    font-style: italic;
+    font-weight: bold;
+}
+.about-text button{
+    background-color: var(--bg-secondary);
+    color: var(--white);
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.about-text button:hover{
+    background-color: var(--main-color);
+    transition: .5s;
+}
+
+
+
+/**REVIEWS***/
+.reviews-container{
+    display: grid;
+    grid-template-columns: repeat(3,auto); /**3 sütun ve otomatik boy ekrana**/
+    gap: 15px; /**kutuları birbirinden ayırmış oluyoruz biraz gap ile ***/
+}
+
+/* .rev-img{
+    width: 70px;
+    height: 70px;
+} */
+
+/**rev-img içinde ki img**/
+.rev-img img{
+    width: 70px;
+    height: 70px;
+    /* border: 2px solid var(--main-color); */
+    border-radius: 50%;
+}
+
+.reviews-container .box{
+    display: flex;
+    flex-direction: column; /**alt alta gelecekler***/
+    align-items: center; /**merkezde**/
+    text-align: center; /**metinleri ortalama merkezde**/
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+    padding: 10px;
+    border-radius: 10px;
+}
+.reviews-container .box:hover{
+    scale: 1.04;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.reviews-container .box h2{
+    color: var(--text-color);
+
+}
+
+.reviews-container .box i{
+    color: orange;
+    
+}
+
+
+
+
+/***NEWSLETTER**/
+.newsletter{
+    background: linear-gradient(orangered, orange);
+    margin-top: 40px; /**ile yukarıdan uzaklaştırıyoruz**/
+    padding: 10px; /**içten genişletiyoruz***/
+    display: flex;
+    flex-direction: column; /**alt alta alıp align item ile ortalayacağız***/
+    align-items: center;
+}
+
+.newsletter h2{
+    color: var(--text-color);
+    font-size: 30px;
+
+}
+.newsletter .mail-box{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column; /**alt alta alıyoruz***/
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.newsletter .mail-box input{
+    border: none;
+    outline: none;
+    margin: 10px; /**dışarıdan heyerden boşluk***/
+    background-color: rgba(128, 128, 128, 0.331);
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.newsletter .mail-box a{
+    background-color: var(--bg-secondary);
+    color: var(--white);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+.newsletter .mail-box a:hover{
+    background-color: var(--main-color);
+    transform: .5s;
+    scale: 0.96; /**küçülme mousela tıklayınca***/
+}
+
+
+
+
+
+
+/***FOOTER***/
+
+.copyright{
+    display: flex;
+    justify-content: space-between; /**sağ ve sol başa sabitliyoruz bölüp***/
+    align-items: center; /**birbirine hizalama***/
+    background-color: red;
+    color: #fff;
+    padding: 20px; /**kırmızı alanı biraz daha büyütüyoruz içten padding ile***/
+}
+
+.copyright a{
+    color: var(--white);
+    text-decoration: none;
+    font-style: italic;
+}   
+
+
+
+
+
+
+
+
+/***RESPONSİVE MOBİL KISMI***/
+/**? görüntü 550px altına düştüğünde, */
+@media (max-width:554px){
+    header{
+        display: flex;
+        flex-direction: column; /**hepsini alt alta al ekran mobile olunca***/
+        gap: 10px; /**çok bitişik olmamaları için aralarını açıyoruz***/
+    }
+
+
+    /***form tarih seçme ve adres seçme inputlarını düzeltiyoruz***/
+    .form-container form{
+      display: flex;
+      flex-direction: column;
+      margin-left: 200px;
+      transition: .5s;
+        
+    }
+}
+
+
+
